@@ -95,7 +95,7 @@
   hosts: localhost 
   tasks: 
     - name: Create project request template in default project
-      shell: "oc create -f ./project-template.yml -n default || oc replace -f ./project-template.yml -n default"
+      shell: "oc create -f ./proj-temp.yml -n default || oc replace -f ./proj-temp.yml -n default"
   tags:
     - fixtemplate
 
@@ -135,6 +135,7 @@
   tags:
     - create_projects
 
+
 - name: Creation of users for Alpha and Beta clients
   hosts: masters
   tasks:
@@ -142,6 +143,8 @@
       script: ./scripts/add_users_alpha_beta.sh
   tags:
     - create_users
+
+#- name: Assigning labels to the users according to its group
 
 #- name: Setup the environment for Alpha and Beta clients
 
