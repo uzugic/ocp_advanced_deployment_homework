@@ -48,11 +48,11 @@
   tags:
     - nfs
 
-#- name: Create 25 definitions files for PVs 5G size
-#  hosts: localhost
-#  tasks:
-#    - name: "Creating the files.."
-#      script: ./scripts/pvs_5Gsize.sh
+- name: Create 25 definitions files for PVs 5G size
+  hosts: localhost
+  tasks:
+    - name: "Creating the files.."
+      script: ./scripts/pvs_5Gsize.sh
   
 - name: Create 25 definitions files for PVs 10G size
   hosts: localhost
