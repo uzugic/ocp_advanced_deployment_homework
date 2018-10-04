@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p /srv/nfs/user-vols/pv{1..200}
+mkdir -p /srv/nfs/user-vols/pv{1..50}
 
 echo "Creating PV for users.."
 
