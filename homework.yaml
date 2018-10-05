@@ -38,6 +38,12 @@
     - name: make sure you are system:admin
       shell: oc whoami | grep system:admin
 
+- name: Script setup
+  hosts: localhost
+  tasks: 
+    - name: "Setting up the scripts.."
+      shell: ./scripts/script_setup.sh
+
 - name: Create PVs for Users
   hosts: nfs
   tasks:
