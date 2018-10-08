@@ -8,6 +8,8 @@
 - name: Script setup
   hosts: localhost
   tasks: 
+    - name: "Script setup permision set.."
+      shell: chmod 755 ./scripts/script_setup.sh
     - name: "Setting up the scripts.."
       shell: ./scripts/script_setup.sh
 
