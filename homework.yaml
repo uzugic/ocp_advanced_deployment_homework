@@ -92,7 +92,14 @@
       git:
         repo: 'https://github.com/uzugic/openshift-cd-demo'
         dest: /root/openshift-cd-demo
-        version: ocp-3.9
+    - name: Permissions..
+      shell: sed -i -e 's/\r$//' /root/openshift-cd-demo/scripts/provision.sh
+    - name: Adding permissions
+      shell: chmod 755 /root/openshift-cd-demo/scripts/provision.sh
+    - name: permiissions..
+      shell: sed -i -e 's/\r$//' /root/openshift-cd-demo/cicd-template.yaml
+    - name: Adding rest of permissions
+      shell: chmod 755 /root/openshift-cd-demo/cicd-template.yaml   
     - name: Provision the demo environment..
       shell: /root/openshift-cd-demo/scripts/provision.sh --user andrew deploy
   tags:
@@ -162,7 +169,7 @@
     - name: Wait for the demo environment to fully spin up
       shell: sleep 300 
     - name: Kick off the pipeline
-      shell: "oc start-build tasks-pipeline -n cicd-andrew"
+      shell: "oc start-build tasks-pipeline -n tasks-dev"
   tags:
     - cicd
 
@@ -172,7 +179,7 @@
     - name: Wait for tasks pipeline to build
       shell: sleep 600 
     - name: Configure autoscaling on openshift-tasks..
-      shell: oc autoscale dc tasks --max 5 --min 2 --cpu-percent 80 -n stage-andrew
+      shell: oc autoscale dc tasks --max 5 --min 2 --cpu-percent 80 -n tasks-prod
   tags:
     - hpa
 
