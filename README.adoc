@@ -16,4 +16,7 @@ deployed properly.
 Good luck!  And try to have fun!
 
 
+to install: ansible-playbook ./ocp_advanced_deployment_homework/homework.yaml
+to uninstall: sh ./ocp_advanced_deployment_homework/scripts/uninstall.sh
+
 
